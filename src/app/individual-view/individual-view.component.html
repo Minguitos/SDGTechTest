@@ -1,0 +1,19 @@
+<div class="continents-container">
+  <div class="continent-card" *ngFor="let continent of continents">
+    <mat-card>
+      <img mat-card-image [src]="continent.image" alt="{{ continent.name }}" />
+      <mat-card-header>
+        <mat-card-title>{{ continent.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Number of countries: {{ continent.countries.length }}</p>
+        <p>{{ continent.description }}</p>
+      </mat-card-content>
+      <mat-card-actions class="mat-card-actions">
+        <button mat-button [routerLink]="['/continent', continent.name]">
+          Details...
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+@import "../../styles.scss";
+
+.continent-card {
+  margin: 20px auto;
+  max-width: 60%;
+  background-color: #ffffff;
+  padding: 15px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+
+  button {
+    background-color: #3f51b5;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#3f51b5, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten(#3f51b5, 20%);
+      cursor: not-allowed;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: nowrap;
+    button {
+      width: auto;
+    }
+  }
+}

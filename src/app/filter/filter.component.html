@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>Filter by Population</mat-label>
+  <input
+    matInput
+    [(ngModel)]="populationThreshold"
+    (ngModelChange)="onFilterChange()"
+    type="number"
+  />
+</mat-form-field>

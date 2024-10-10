@@ -1,0 +1,92 @@
+@import "../../styles.scss";
+
+.continents-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px auto;
+
+  .continent-card {
+    flex: 1 1 calc(33% - 40px);
+    max-width: 230px;
+    min-width: 230px;
+  }
+
+  @media (max-width: 1024px) {
+    .continent-card {
+      flex: 1 1 calc(50% - 20px);
+      max-width: 230px;
+      min-width: 230px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    .continent-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+      min-width: 90%;
+      margin: 10px auto;
+    }
+  }
+}
+
+.continents-container .continent-card mat-card {
+  width: 230px;
+  height: 160px;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.continents-container .continent-card p {
+  margin: 0;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.continents-container .continent-card button {
+  margin-top: 10px;
+  background-color: $primary-color;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.global-card {
+  margin: 20px auto;
+  max-width: 60%;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  @media (max-width: 1024px) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  @media (max-width: 768px) {
+    margin: 10px auto;
+    max-width: 100%;
+  }
+}
+
+.additional-text {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  color: white;
+}

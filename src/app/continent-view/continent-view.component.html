@@ -1,0 +1,40 @@
+<div class="back-button">
+  <button
+    mat-button
+    (click)="goToPreviousContinent()"
+    [disabled]="currentIndex === 0"
+  >
+    Previous
+  </button>
+  <button
+    mat-button
+    (click)="goToNextContinent()"
+    [disabled]="currentIndex === continents.length - 1"
+  >
+    Next
+  </button>
+</div>
+
+<mat-card class="continent-card">
+  <mat-card-header>
+    <mat-card-title>Population Data in {{ continentName }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-filter (filterChange)="onFilterChange($event)"></app-filter>
+
+    <div *ngIf="loading" class="loading-indicator">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!loading">
+      <highcharts-chart
+        *ngIf="chartOptions"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 100%; height: 400px; display: block"
+      ></highcharts-chart>
+
+      <p>{{ description }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

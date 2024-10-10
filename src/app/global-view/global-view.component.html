@@ -1,0 +1,38 @@
+<mat-card class="global-card">
+  <mat-card-header>
+    <mat-card-title>World Population by Continent</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-filter (filterChange)="onFilterChange($event)"></app-filter>
+    <div *ngIf="loading" class="loading-indicator">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="!loading && continents.length">
+      <highcharts-chart
+        *ngIf="chartOptions"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 100%; height: 400px; display: block"
+      ></highcharts-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<h2 class="additional-text">More ...</h2>
+
+<div class="continents-container">
+  <div class="continent-card" *ngFor="let continent of continents">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ continent.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Number of countries: {{ continent.countries.length }}</p>
+        <p>Population: {{ continent.population | number }}</p>
+        <button mat-button [routerLink]="['/continent', continent.name]">
+          See countries
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
